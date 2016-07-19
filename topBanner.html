@@ -1,0 +1,52 @@
+<div class="top-title-panel">
+	<div class="title-panel-block">
+		<table style="height: 100%;">
+			<tr>
+				<th valign="middle"><a href="#/alarms"><img class="smi-logo" src="images/adapt_logo.png" /></a></th>
+				<th>
+ 					<section class="alarm-info" ng-show="alarmInfo">
+						<p>
+							<strong class="label-title">Alarm: </strong><span
+								class="label-value">{{alarmInfo.id}}</span>
+						</p>
+						<p>
+							<strong class="label-title">{{linkedNode.type}}: </strong><span
+								class="label-value">{{linkedNode.name}}</span>
+						</p>
+						<p>
+							<strong class="label-title">Description: </strong>
+						<p class="label-value">{{alarmInfo.description}}</p>
+						</p>
+						</h4>
+					</section>
+				</th>
+			</tr>
+		</table>
+	</div>
+	<div class="version">
+		<span>Ver. {{version}}</span>
+	</div>
+	<div class="title-panel-block user-msg" ng-show="alarmInfo">
+		<p class="text-red-color">Please select the suggestions that were
+			used to clear the alarm and submit.</p>
+	</div>
+	
+ 	<div class="title-panel-block user-info">
+		<table style="height: 100%;">
+			<tr>
+				<th class="label-title">Roles:</td>
+				<td><span class="label-value" ng-repeat="role in userAuth.roles">
+					<span ng-if="role!='SMI_admin'">{{role.replace("SMI_", "")}}&nbsp;
+						<img src="images/info_white.png" ng-if="role=='SMI_integrator'" title="{{userAuth.subSystems.toString().replace(',','&#013;')}}" />
+					</span>
+					<span ng-if="role=='SMI_admin'"><a href="#/structureUpload">{{role.replace("SMI_", "")}}</a></span>
+					<br>
+				</span></td>
+				<th class="label-title">User:</td>
+				<td style="text-align: center;">
+					<span class="label-value">{{userAuth.userName}}</span><br>
+					<span ng-click="logout()"><img src="images/log_out_32_transparent_bg.png" /><br><span class="label-title">Log Out</span></span>
+				</td>
+		</table>
+	</div>
+</div>
